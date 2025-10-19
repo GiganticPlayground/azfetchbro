@@ -1,0 +1,24 @@
+/tmp
+/out-tsc
+
+/node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+/.pnp
+.pnp.js
+
+.vscode/*
+/tokens.json
+/policy.json
+
+# Terraform local secrets (untracked)
+_infrastructure_demo/terraform.secrets.tfvars
+_infrastructure/*.auto.tfvars
+_infrastructure/*.tfvars.local
+/_infrastructure_demo/.terraform/
+/_infrastructure_demo/.terraform.lock.hcl
+/_infrastructure_demo/terraform.tfstate
+/_infrastructure_demo/terraform.tfstate.backup
+/_infrastructure_demo/tfplan
+/_infrastructure_demo/secrets/
