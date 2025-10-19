@@ -1,0 +1,25 @@
+{
+  "name": "azfetchbro",
+  "version": "1.0.0",
+  "description": "A secure, containerized token broker for Azure Data Explorer and Event Hubs.",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "./node_modules/.bin/rimraf azfetchbro-server/dist && tsc -p tsconfig.json && npm run distribute-docker",
+    "start": "DOTENV_CONFIG_PATH=.env node -r dotenv/config dist/server.js",
+    "dev": "DOTENV_CONFIG_PATH=.env tsx watch --require dotenv/config src/server.ts",
+    "distribute-docker": "cp -a ./dist ../docker-wrapper/azfetchbro-service/ && cp -a ./policy.json ../docker-wrapper/azfetchbro-service/ && cp -a ./tokens.json ../docker-wrapper/azfetchbro-service/ && cp package*.json ../docker-wrapper/azfetchbro-service/"
+  },
+  "dependencies": {
+    "axios": "^1.6.8",
+    "express": "^4.19.2",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.12",
+    "@types/express": "^4.17.21",
+    "typescript": "^5.5.3",
+    "rimraf": "^5.0.5",
+    "tsx": "^4.7.2"
+  },
+  "private": true
+}

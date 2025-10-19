@@ -1,6 +1,7 @@
 # azfetchbro Infrastructure Demonstration Deployment
 
-This folder contains a minimal Terraform stack and helper scripts to provision demo Azure resources used by the azfetchbro tool.
+This folder contains a minimal Terraform stack and helper scripts to provision demo Azure resources used by the 
+azfetchbro tool.
 
 ## What gets created
 - Resource Group
@@ -26,7 +27,7 @@ Helpful docs:
 4. Review (and optionally edit) `terraform.tfvars` to set:
    - `resource_group_name`, `location`, `key_vault_name`
    - a `secrets` map for demo secrets (or keep in the secrets file)
-5. Initialize Terraform: `terraform init`.
+5. Initialize Terraform: `terraform init`. (should ne beeded only on your first run)
 6. Plan using the helper (auto-detects `terraform.secrets.tfvars` if present): `./x-plan.sh`.
 7. Apply the saved plan: `./x-apply.sh`.
 8. When done, destroy the demo resources: `./x-destroy.sh`.
@@ -37,7 +38,8 @@ Helpful docs:
 - Providers used (see versions.tf): azurerm `~> 4.0`, azuread `~> 2.47`, random `~> 3.6`.
 
 ## Secrets handling and SP secret rotation
-- Running `./x-apply.sh` will regenerate the Service Principal client secret every time it runs. The script always overwrites `./secrets/service_principal_client_secret` with the newly created value after a successful apply.
+- Running `./x-apply.sh` will regenerate the Service Principal client secret every time it runs. The script always 
+  overwrites `./secrets/service_principal_client_secret` with the newly created value after a successful apply.
 - After a successful apply, secrets are saved into the local `./secrets` directory:
   - One file per secret, named by the secret key.
   - The Service Principal client secret is always overwritten on each apply.

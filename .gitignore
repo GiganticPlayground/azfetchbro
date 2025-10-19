@@ -9,8 +9,8 @@ yarn-error.log*
 .pnp.js
 
 .vscode/*
-/tokens.json
-/policy.json
+/azfetchbro-server/tokens.json
+/azfetchbro-server/policy.json
 
 # Terraform local secrets (untracked)
 _infrastructure_demo/terraform.secrets.tfvars
@@ -22,3 +22,8 @@ _infrastructure/*.tfvars.local
 /_infrastructure_demo/terraform.tfstate.backup
 /_infrastructure_demo/tfplan
 /_infrastructure_demo/secrets/
+
+# TLS helper local state (untracked)
+/_tls_helper/_tls_helper.state
+/_tls_helper/certs/*
+/docker-wrapper/nginx-service/certs/
